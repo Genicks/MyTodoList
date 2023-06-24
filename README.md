@@ -3,6 +3,5 @@
 - [ ] Edit task
 - [ ] Add date input
 - [ ] Add discription input
-- [ ] Add padding to the top of the page
-- [ ] Center the item in the task
-
+- [x] Add padding to the top of the page
+- [x] Center the item in the task

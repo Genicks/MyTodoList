@@ -30,8 +30,8 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <Header taskNum={taskNum} myTasks={myTasks} />
+    <div className="container mt-5">
+      <Header taskNum={taskNum} myTasks={myTasks}/>
       <Addtask
         textBoxValue={textBoxValue}
         handleChange={handleChange}
