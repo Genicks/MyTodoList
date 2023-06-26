@@ -3,4 +3,5 @@
 
 # Features to add
 - [ ] local storage
-- [ ] Remove border top for the description in tasklist
+- [ ] Remove border top for the description in tasklist when description is empty
+- [ ] Make task list dark theme and prettier 
