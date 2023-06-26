@@ -1,7 +1,6 @@
-# Features I want to add:
+# Bugs to be fixed:
+- [ ] Fix checkbox functionality
 
-- [ ] Edit task
-- [ ] Add date input
-- [ ] Add discription input
-- [x] Add padding to the top of the page
-- [x] Center the item in the task
+# Features to add
+- [ ] local storage
+- [ ] Remove border top for the description in tasklist
