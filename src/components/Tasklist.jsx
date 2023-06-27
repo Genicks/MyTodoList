@@ -1,20 +1,24 @@
 import React from "react";
 import Task from "./Task";
 import { Discription } from "./Discription";
-import './customClass.css'
+import "./customClass.css";
 
 function Tasklist(Props) {
   const { myTasks, deleteTask, DynamicSylesBorderPadding } = Props;
 
+  const myTasksArray = myTasks;
   return (
     <div className={DynamicSylesBorderPadding.padding}>
       <ul className="list-group">
         {myTasks.map((myTasks, index) => (
-          <li className="list-group-item container  text-black my-1" key={index}>
+          <li
+            className="list-group-item container  text-black my-1"
+            key={index}
+          >
             <div className="row justify-content-between d-flex align-items-center">
               {/* This code renders the check box and label */}
               <div className="col-auto ">
-                <Task index={index} deleteTask={deleteTask} myTasks={myTasks} />
+                <Task index={index} deleteTask={deleteTask} myTasks={myTasksArray} />
               </div>
 
               {/* this code renders the delete button */}
@@ -26,11 +30,11 @@ function Tasklist(Props) {
 
               {/* this code renders the discription */}
             </div>
-              <div className="row">
-                <p className="col text-secondary mt-2 my-auto px-5 border-top">
-                  <Discription myTasks={myTasks} />
-                </p>
-              </div>
+            <div className="row">
+              <p className="col text-secondary mt-2 my-auto px-5 border-top">
+                <Discription myTasks={myTasks} />
+              </p>
+            </div>
           </li>
         ))}
       </ul>

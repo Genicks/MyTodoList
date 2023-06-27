@@ -52,7 +52,6 @@ function App() {
   };
 
   const deleteTask = (index, timeout, event) => {
-    console.log(event);
     setTimeout(() => {
       const delitem = myTasks[index];
       setMyTask(myTasks.filter((myTasks) => myTasks !== delitem));
@@ -80,6 +79,7 @@ function App() {
         handleButtonClickCancel={handleButtonClickCancel}
         DynamicSylesBorderPadding={DynamicSylesBorderPadding}
       />
+    {/* {console.log(myTasks)} */}
     </div>
   );
 }

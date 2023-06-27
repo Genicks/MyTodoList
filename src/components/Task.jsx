@@ -3,19 +3,23 @@ function Task(props) {
 
   function handleCheckboxChange(event) {
     const isChecked = event.target.checked;
-    console.log(event);
+    const checkboxbelow = document.getElementById(`checkbox${index}`);
 
     if (isChecked) {
       deleteTask(index, 1000, event);
-      // myTasks[index].event.target.checked = false;
+      // console.log(myTasks)   
     }
+
+    setTimeout(() => {
+      checkboxbelow.checked = false
+    }, 1000);
   }
 
   return (
     <div className="row d-flex align-items-center">
       <div className="col-auto">
         <input
-          id="task"
+          id={`checkbox${index}`}
           type="checkbox"
           onChange={handleCheckboxChange}
           className="form-check-input fs-4 border-warning"
@@ -23,7 +27,7 @@ function Task(props) {
       </div>
 
       <label htmlFor="task" className="px-0 fs-5 col-auto">
-        {myTasks.name}
+        {myTasks[index].name}
       </label>
     </div>
   );

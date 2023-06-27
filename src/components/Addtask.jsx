@@ -32,7 +32,7 @@ function Addtask(props) {
               className="btn btn-danger m-1 col-auto border-danger"
               onClick={props.handleButtonClickCancel}
             >
-              <i class="bi bi-x-lg"></i>
+              <i className="bi bi-x-lg"></i>
               Cancel
             </button>
 
@@ -40,7 +40,7 @@ function Addtask(props) {
               className="btn btn-success m-1 col-auto"
               onClick={props.handleButtonClick}
             >
-              <i class="bi bi-send"></i>
+              <i className="bi bi-send"></i>
               Add task
             </button>
           </div>
