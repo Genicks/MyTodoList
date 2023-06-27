@@ -1,7 +1,10 @@
-export function Header(props) {
+function Header(props) {
+  const array = props.myTasks;
+  const length = array.length;
+
   return (
-    <div className="row">
-      <h1 className="col">Todoist {props.taskNum}</h1>
+    <div className="row border-bottom border-secondary">
+      <h1 className="col">Today {length}</h1>
     </div>
   );
 }

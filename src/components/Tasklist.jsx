@@ -1,23 +1,36 @@
 import React from "react";
-import Checkbox from "./Checkbox";
+import Task from "./Task";
+import { Discription } from "./Discription";
+import './customClass.css'
 
 function Tasklist(Props) {
-  const { tasks, deleteTask } = Props;
+  const { myTasks, deleteTask, DynamicSylesBorderPadding } = Props;
 
   return (
-    <div className="py-3">
+    <div className={DynamicSylesBorderPadding.padding}>
       <ul className="list-group">
-        {tasks.map((task, index) => (
-          <li className="list-group-item" key={index}>
+        {myTasks.map((myTasks, index) => (
+          <li className="list-group-item container  text-black my-1" key={index}>
             <div className="row justify-content-between d-flex align-items-center">
-              <div className="col-auto">
-                <Checkbox index={index} deleteTask={deleteTask} />
-                <label className="px-2">{task}</label>
+              {/* This code renders the check box and label */}
+              <div className="col-auto ">
+                <Task index={index} deleteTask={deleteTask} myTasks={myTasks} />
               </div>
-              {React.Children.map(Props.children, (child) => {
-                return React.cloneElement(child, { index, ...child.Props });
-              })}
+
+              {/* this code renders the delete button */}
+              <div className="col-auto">
+                {React.Children.map(Props.children, (child) => {
+                  return React.cloneElement(child, { index, ...child.Props });
+                })}
+              </div>
+
+              {/* this code renders the discription */}
             </div>
+              <div className="row">
+                <p className="col text-secondary mt-2 my-auto px-5 border-top">
+                  <Discription myTasks={myTasks} />
+                </p>
+              </div>
           </li>
         ))}
       </ul>

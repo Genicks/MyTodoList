@@ -6,8 +6,9 @@ function Deletebutton(props) {
   };
 
   return (
-    <button className="btn btn-danger col-auto mx-2" onClick={delFunc}>
-      <i className="bi bi-trash3"></i>
+    <button className="btn btn-danger" onClick={delFunc}>
+      <i className="bi bi-trash3
+      "></i>
     </button>
   );
 }

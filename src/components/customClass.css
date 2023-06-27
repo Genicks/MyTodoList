@@ -1,0 +1,20 @@
+.c-ph-light::placeholder {
+  color: white;
+  font-size: bold;
+}
+.c-ph-light-subtle::placeholder {
+  color: gray;
+}
+.c-fw-bold::placeholder,.c-fw-bold:focus, .c-fw-bold::placeholder, .c-fw-bold:not(:focus){
+    font-weight: bold;
+}
+
+.c-text-input,
+.c-text-input:focus,
+.c-text-input:active {
+  color: white;
+  box-shadow: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
