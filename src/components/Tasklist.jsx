@@ -38,10 +38,8 @@ function Tasklist(Props) {
 
               {/* this code renders the discription */}
             </div>
-            <div className="row">
-              <p className="col text-secondary mt-2 my-auto px-5 border-top">
-                <Discription myTasks={myTasks} />
-              </p>
+            <div className="row d-flex align-items-center">
+                <Discription myTasks={myTasks}/>
             </div>
           </li>
         ))}

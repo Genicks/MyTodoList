@@ -17,7 +17,7 @@ function App() {
     setDynamicSylesBorderPadding(
       myTasks.length === 0
         ? { padding: "py-0", border: "border-0" }
-        : { padding: "py-3", border: "border-top" }
+        : { padding: "py-3", border: "border-top border-secondary" }
     );
   }, [myTasks]);
 
