@@ -11,7 +11,25 @@ function App() {
   const [textBoxValueDiscription, setTextBoxValueDiscription] = useState("");
   const [isBtnClicked, setBtnState] = useState(true);
   const [taskObject, setTaskObject] = useState({});
-  const [DynamicSylesBorderPadding, setDynamicSylesBorderPadding] = useState({});
+  const [DynamicSylesBorderPadding, setDynamicSylesBorderPadding] = useState(
+    {}
+  );
+  const [Time, setTime] = useState(new Date());
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date());
+    }, 1000); // Update the time every second (1000 milliseconds)
+
+    return () => {
+      clearInterval(interval); // Cleanup the interval on component unmount
+    };
+  }, []);
+
+  const formattedTime = Time.toLocaleTimeString();
+  const formattedDate = Time.toLocaleDateString();
+
 
   useEffect(() => {
     setDynamicSylesBorderPadding(
@@ -64,8 +82,17 @@ function App() {
 
   return (
     <div className="container mt-5">
-      <Header taskNum={taskNum} myTasks={myTasks} />
-      <Tasklist myTasks={myTasks} deleteTask={deleteTask} DynamicSylesBorderPadding={DynamicSylesBorderPadding}>
+      <Header
+        taskNum={taskNum}
+        myTasks={myTasks}
+        Time={formattedTime}
+        Date={formattedDate}
+      />
+      <Tasklist
+        myTasks={myTasks}
+        deleteTask={deleteTask}
+        DynamicSylesBorderPadding={DynamicSylesBorderPadding}
+      >
         <Deletebutton deleteTask={deleteTask} />
       </Tasklist>
       <AddtaskBtn
@@ -79,7 +106,7 @@ function App() {
         handleButtonClickCancel={handleButtonClickCancel}
         DynamicSylesBorderPadding={DynamicSylesBorderPadding}
       />
-    {/* {console.log(myTasks)} */}
+      {/* {console.log(currentDate)} */}
     </div>
   );
 }
