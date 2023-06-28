@@ -4,7 +4,7 @@ export const DueDate = (Props) => {
   return (
     <div className="col">
       {myTasks.date ? (
-        <div className="row  d-flex align-items-center text-success">
+        <div className="row  d-flex align-items-center text-secondary">
           <i className="bi bi-dot col-auto pe-0"></i>
           <div className="col-auto p-0 m-0 ">{myTasks.date}</div>
         </div>

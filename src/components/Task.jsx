@@ -23,7 +23,7 @@ function Task(props) {
             id={`checkbox${index}`}
             type="checkbox"
             onChange={handleCheckboxChange}
-            className="form-check-input fs-4 border-warning col rounded-circle bg-transparent border-2"
+            className="form-check-input fs-4 border-secondary col rounded-circle bg-transparent border-2"
           />
         </div>
 
