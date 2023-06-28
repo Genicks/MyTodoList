@@ -25,7 +25,7 @@ function Tasklist(Props) {
                     deleteTask={deleteTask}
                     myTasks={myTasksArray}
                   />
-                  <DueDate index={index}/>
+                  <DueDate myTasks={myTasks}/>
                 </div>
               </div>
 

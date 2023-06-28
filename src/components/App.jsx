@@ -9,13 +9,13 @@ function App() {
   const [taskNum, setTaskNum] = useState(0);
   const [textBoxValueName, setTextBoxValueName] = useState("");
   const [textBoxValueDiscription, setTextBoxValueDiscription] = useState("");
+  const [inputValueDate, setinputValueDate] = useState("");
   const [isBtnClicked, setBtnState] = useState(true);
   const [taskObject, setTaskObject] = useState({});
   const [DynamicSylesBorderPadding, setDynamicSylesBorderPadding] = useState(
     {}
   );
   const [Time, setTime] = useState(new Date());
-
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,7 +30,6 @@ function App() {
   const formattedTime = Time.toLocaleTimeString();
   const formattedDate = Time.toLocaleDateString();
 
-
   useEffect(() => {
     setDynamicSylesBorderPadding(
       myTasks.length === 0
@@ -39,10 +38,11 @@ function App() {
     );
   }, [myTasks]);
 
-  const createTaskObject = (name, discription) => {
+  const createTaskObject = (name, discription, date) => {
     const task = {
       name,
       discription,
+      date
     };
     setTaskObject(task);
   };
@@ -56,6 +56,10 @@ function App() {
     const value = event.target.value;
     setTextBoxValueDiscription(value);
   };
+  const handleChangeDate = (event) => {
+    const value = event.target.value;
+    setinputValueDate(value);
+  }
 
   const handleButtonClick = () => {
     setMyTask([...myTasks, taskObject]);
@@ -77,8 +81,8 @@ function App() {
   };
 
   useEffect(() => {
-    createTaskObject(textBoxValueName, textBoxValueDiscription);
-  }, [textBoxValueName, textBoxValueDiscription]);
+    createTaskObject(textBoxValueName, textBoxValueDiscription, inputValueDate);
+  }, [textBoxValueName, textBoxValueDiscription, inputValueDate]);
 
   return (
     <div className="container mt-5">
@@ -100,13 +104,15 @@ function App() {
         handleChangeName={handleChangeName}
         textBoxValueDiscription={textBoxValueDiscription}
         handleChangeDiscription={handleChangeDiscription}
+        inputValueDate={inputValueDate}
+        handleChangeDate={handleChangeDate}
         isBtnClicked={isBtnClicked}
         setBtnState={setBtnState}
         handleButtonClick={handleButtonClick}
         handleButtonClickCancel={handleButtonClickCancel}
         DynamicSylesBorderPadding={DynamicSylesBorderPadding}
       />
-      {/* {console.log(currentDate)} */}
+      {/* {console.log(myTasks)} */}
     </div>
   );
 }

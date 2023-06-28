@@ -1,4 +1,4 @@
-import './customClass.css'
+import "./customClass.css";
 
 function Addtask(props) {
   return (
@@ -26,6 +26,15 @@ function Addtask(props) {
 
       {/* ROW 2 */}
       <div className="row d-flex align-items-center border-top p-1 border-secondary">
+        <div className="col-auto">
+          <input
+            type="date"
+            className="row justify-content-start form-control "
+            value={props.inputValueDate}
+            onChange={props.handleChangeDate}
+            onClick={props.handleChangeDate}
+          />
+        </div>
         <div className="col">
           <div className="row justify-content-end">
             <button

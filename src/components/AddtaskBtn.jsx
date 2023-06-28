@@ -8,6 +8,8 @@ export const AddtaskBtn = (props) => {
     handleChangeName,
     textBoxValueDiscription,
     handleChangeDiscription,
+    inputValueDate,
+    handleChangeDate,
     handleButtonClick,
     handleButtonClickCancel,
     DynamicSylesBorderPadding
@@ -32,6 +34,8 @@ export const AddtaskBtn = (props) => {
           handleChangeName={handleChangeName}
           textBoxValueDiscription={textBoxValueDiscription}
           handleChangeDiscription={handleChangeDiscription}
+          inputValueDate={inputValueDate}
+          handleChangeDate={handleChangeDate}
           handleButtonClick={handleButtonClick}
           handleButtonClickCancel={handleButtonClickCancel}
         />
