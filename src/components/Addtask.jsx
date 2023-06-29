@@ -29,7 +29,7 @@ function Addtask(props) {
         <div className="col-auto">
           <input
             type="date"
-            className="row justify-content-start form-control "
+            className="c-date-input"
             value={props.inputValueDate}
             onChange={props.handleChangeDate}
             onClick={props.handleChangeDate}

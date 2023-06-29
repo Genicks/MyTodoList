@@ -12,10 +12,9 @@ function App() {
   const [inputValueDate, setinputValueDate] = useState("");
   const [isBtnClicked, setBtnState] = useState(true);
   const [taskObject, setTaskObject] = useState({});
-  const [DynamicSylesBorderPadding, setDynamicSylesBorderPadding] = useState(
-    {}
-  );
+  const [dynamicStyles, setdynamicStyles] = useState({});
   const [Time, setTime] = useState(new Date());
+  // const [tomorrowDate, setTomorrowDate] = useState('');
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -31,7 +30,7 @@ function App() {
   const formattedDate = Time.toLocaleDateString();
 
   useEffect(() => {
-    setDynamicSylesBorderPadding(
+    setdynamicStyles(
       myTasks.length === 0
         ? { padding: "py-0", border: "border-0" }
         : { padding: "py-3", border: "border-top border-secondary" }
@@ -59,7 +58,7 @@ function App() {
   const handleChangeDate = (event) => {
     const value = event.target.value;
     setinputValueDate(value);
-  }
+  };
 
   const handleButtonClick = () => {
     setMyTask([...myTasks, taskObject]);
@@ -95,7 +94,7 @@ function App() {
       <Tasklist
         myTasks={myTasks}
         deleteTask={deleteTask}
-        DynamicSylesBorderPadding={DynamicSylesBorderPadding}
+        dynamicStyles={dynamicStyles}
       >
         <Deletebutton deleteTask={deleteTask} />
       </Tasklist>
@@ -110,7 +109,7 @@ function App() {
         setBtnState={setBtnState}
         handleButtonClick={handleButtonClick}
         handleButtonClickCancel={handleButtonClickCancel}
-        DynamicSylesBorderPadding={DynamicSylesBorderPadding}
+        dynamicStyles={dynamicStyles}
       />
       {/* {console.log(myTasks)} */}
     </div>

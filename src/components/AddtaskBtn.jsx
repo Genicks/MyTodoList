@@ -12,13 +12,13 @@ export const AddtaskBtn = (props) => {
     handleChangeDate,
     handleButtonClick,
     handleButtonClickCancel,
-    DynamicSylesBorderPadding
+    dynamicStyles,
   } = props;
 
   return (
     <div>
       {isBtnClicked ? (
-        <div className={DynamicSylesBorderPadding.border}>
+        <div className={dynamicStyles.border}>
           <button
             className="btn text-success"
             onClick={() => {

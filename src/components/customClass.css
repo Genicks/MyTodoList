@@ -1,12 +1,18 @@
-.c-ph-light, .c-ph-light::placeholder {
+.c-ph-light,
+.c-ph-light::placeholder {
   color: white;
   font-size: bold;
 }
-.c-ph-light-subtle, .c-ph-light-subtle::placeholder {
+.c-ph-light-subtle,
+.c-ph-light-subtle::placeholder {
   color: gray;
 }
-.c-fw-bold, .c-fw-bold::placeholder,.c-fw-bold:focus, .c-fw-bold::placeholder, .c-fw-bold:not(:focus){
-    font-weight: bold;
+.c-fw-bold,
+.c-fw-bold::placeholder,
+.c-fw-bold:focus,
+.c-fw-bold::placeholder,
+.c-fw-bold:not(:focus) {
+  font-weight: bold;
 }
 
 .c-text-input,
@@ -17,4 +23,9 @@
   border: 0;
   padding: 0;
   background: transparent;
+}
+.c-date-input,
+.c-date-input:active,
+.c-date-input:focus {
+  box-shadow: none;
 }
