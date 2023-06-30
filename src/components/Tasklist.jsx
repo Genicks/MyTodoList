@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Task from "./Task";
 import { Discription } from "./Discription";
 import "./customClass.css";
 import { DueDate } from "./DueDate";
 
 function Tasklist(Props) {
-  const { myTasks, deleteTask, DynamicSylesBorderPadding } = Props;
-
+  const { myTasks, deleteTask, dynamicStyles } = Props;
   const myTasksArray = myTasks;
+
+  useEffect(() => {
+    const padding = myTasks.length === 0 ? "py-0" : "py-3";
+    dynamicStyles.ATBStyles.padding = padding;
+  }, [myTasks]);
+
   return (
-    <div className={DynamicSylesBorderPadding.padding}>
+    //! Dynamic styles padding
+    <div className={dynamicStyles.ATBStyles.padding}>
       <ul className="list-group">
         {myTasks.map((myTasks, index) => (
           <li
@@ -25,7 +31,7 @@ function Tasklist(Props) {
                     deleteTask={deleteTask}
                     myTasks={myTasksArray}
                   />
-                  <DueDate myTasks={myTasks}/>
+                  <DueDate myTasks={myTasks} />
                 </div>
               </div>
 
@@ -39,7 +45,7 @@ function Tasklist(Props) {
               {/* this code renders the discription */}
             </div>
             <div className="row d-flex align-items-center">
-                <Discription myTasks={myTasks}/>
+              <Discription myTasks={myTasks} />
             </div>
           </li>
         ))}

@@ -6,42 +6,57 @@ import { AddtaskBtn } from "./AddtaskBtn";
 
 function App() {
   let [myTasks, setMyTask] = useState([]);
+  const [taskObject, setTaskObject] = useState({});
+
   const [taskNum, setTaskNum] = useState(0);
   const [textBoxValueName, setTextBoxValueName] = useState("");
   const [textBoxValueDiscription, setTextBoxValueDiscription] = useState("");
   const [inputValueDate, setinputValueDate] = useState("");
   const [isBtnClicked, setBtnState] = useState(true);
-  const [taskObject, setTaskObject] = useState({});
-  const [dynamicStyles, setdynamicStyles] = useState({});
-  const [Time, setTime] = useState(new Date());
-  // const [tomorrowDate, setTomorrowDate] = useState('');
+  const [dynamicStyles, setdynamicStyles] = useState({
+    ATBStyles: { padding: "py-0", border: "border-0" },
+  });
+
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [yesterday, setYesterday] = useState(new Date());
+  const [tomorrow, setTomorrow] = useState(new Date());
+
+  // useEffect(() => {
+  //   const addTaskBtnStyles =
+  //     myTasks.length === 0
+  //     ?  {padding: 'py-0', border: 'border-0' }
+  //       : {padding: 'py-3', border: 'border-top border-secondary'};
+
+  //   setdynamicStyles({...dynamicStyles, addTaskBtnStyles});
+  // }, [myTasks]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(new Date());
-    }, 1000); // Update the time every second (1000 milliseconds)
+      setCurrentDate(new Date());
+    }, 1000);
 
     return () => {
-      clearInterval(interval); // Cleanup the interval on component unmount
+      clearInterval(interval);
     };
   }, []);
 
-  const formattedTime = Time.toLocaleTimeString();
-  const formattedDate = Time.toLocaleDateString();
+  useEffect(() => {
+    const tempYesterday = new Date();
+    tempYesterday.setDate(currentDate.getDate() - 1);
+    setYesterday(tempYesterday);
+  }, []);
 
   useEffect(() => {
-    setdynamicStyles(
-      myTasks.length === 0
-        ? { padding: "py-0", border: "border-0" }
-        : { padding: "py-3", border: "border-top border-secondary" }
-    );
-  }, [myTasks]);
+    const tempTomorrow = new Date();
+    tempTomorrow.setDate(currentDate.getDate() + 1);
+    setTomorrow(tempTomorrow);
+  }, []);
 
   const createTaskObject = (name, discription, date) => {
     const task = {
       name,
       discription,
-      date
+      date,
     };
     setTaskObject(task);
   };
@@ -88,13 +103,16 @@ function App() {
       <Header
         taskNum={taskNum}
         myTasks={myTasks}
-        Time={formattedTime}
-        Date={formattedDate}
+        Time={currentDate.toLocaleTimeString()}
+        Date={currentDate.toLocaleDateString()}
       />
       <Tasklist
         myTasks={myTasks}
         deleteTask={deleteTask}
         dynamicStyles={dynamicStyles}
+        yesterday={yesterday}
+        today={currentDate}
+        tomorrow={tomorrow}
       >
         <Deletebutton deleteTask={deleteTask} />
       </Tasklist>
@@ -110,8 +128,8 @@ function App() {
         handleButtonClick={handleButtonClick}
         handleButtonClickCancel={handleButtonClickCancel}
         dynamicStyles={dynamicStyles}
+        myTasks={myTasks}
       />
-      {/* {console.log(myTasks)} */}
     </div>
   );
 }

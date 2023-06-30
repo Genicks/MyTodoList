@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Addtask from "./Addtask";
 
 export const AddtaskBtn = (props) => {
@@ -13,12 +14,19 @@ export const AddtaskBtn = (props) => {
     handleButtonClick,
     handleButtonClickCancel,
     dynamicStyles,
+    myTasks
   } = props;
+
+  useEffect(() => {
+    const border = myTasks.length === 0 ? "border-0" : "border-top border-secondary";
+    dynamicStyles.ATBStyles.border = border;
+  }, [myTasks]);
 
   return (
     <div>
       {isBtnClicked ? (
-        <div className={dynamicStyles.border}>
+        //! Dynamic styles border
+        <div className={dynamicStyles.ATBStyles.border}>
           <button
             className="btn text-success"
             onClick={() => {
