@@ -1,5 +1,5 @@
 function Taskname(props) {
-  let { index, deleteTask, myTasks } = props;
+  let { index, deleteTask, myTasks, dynamicStyles } = props;
 
   function handleCheckboxChange(event) {
     const isChecked = event.target.checked;
@@ -23,11 +23,13 @@ function Taskname(props) {
             id={`checkbox${index}`}
             type="checkbox"
             onChange={handleCheckboxChange}
-            className="form-check-input fs-4 border-secondary col rounded-circle bg-transparent border-2"
+            className={`form-check-input fs-4 border-secondary col rounded-circle bg-transparent border-2 ${dynamicStyles.TaskStyles.color}`}
           />
         </div>
 
-        <label className="px-0 fs-5 col-auto">
+        <label
+          className={`px-0 fs-5 col-auto ${dynamicStyles.TaskStyles.color}`}
+        >
           {myTasks[index].name}
         </label>
       </div>

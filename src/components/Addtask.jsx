@@ -28,7 +28,7 @@ function Addtask(props) {
       <div className="row d-flex align-items-center border-top p-1 border-secondary">
         <div className="col-auto">
           <input
-            type="date"
+            type="datetime-local"
             className="c-date-input"
             value={props.inputValueDate}
             onChange={props.handleChangeDate}

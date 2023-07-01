@@ -15,20 +15,13 @@ function App() {
   const [isBtnClicked, setBtnState] = useState(true);
   const [dynamicStyles, setdynamicStyles] = useState({
     ATBStyles: { padding: "py-0", border: "border-0" },
+    TaskStyles: { color: "text-warning border-warning" },
   });
 
   const [currentDate, setCurrentDate] = useState(new Date());
   const [yesterday, setYesterday] = useState(new Date());
   const [tomorrow, setTomorrow] = useState(new Date());
-
-  // useEffect(() => {
-  //   const addTaskBtnStyles =
-  //     myTasks.length === 0
-  //     ?  {padding: 'py-0', border: 'border-0' }
-  //       : {padding: 'py-3', border: 'border-top border-secondary'};
-
-  //   setdynamicStyles({...dynamicStyles, addTaskBtnStyles});
-  // }, [myTasks]);
+  const [inputDate, setInputDate] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -52,11 +45,12 @@ function App() {
     setTomorrow(tempTomorrow);
   }, []);
 
-  const createTaskObject = (name, discription, date) => {
+  const createTaskObject = (name, discription, date, inputDate) => {
     const task = {
       name,
       discription,
       date,
+      inputDate,
     };
     setTaskObject(task);
   };
@@ -70,9 +64,13 @@ function App() {
     const value = event.target.value;
     setTextBoxValueDiscription(value);
   };
+
   const handleChangeDate = (event) => {
     const value = event.target.value;
     setinputValueDate(value);
+
+    const inputDate = new Date(value);
+    setInputDate(inputDate);
   };
 
   const handleButtonClick = () => {
@@ -95,8 +93,27 @@ function App() {
   };
 
   useEffect(() => {
-    createTaskObject(textBoxValueName, textBoxValueDiscription, inputValueDate);
-  }, [textBoxValueName, textBoxValueDiscription, inputValueDate]);
+    const isObject =
+      typeof inputDate === "object"
+        ? inputDate.toLocaleString("en-US", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+            hour12: true,
+          })
+        : "";
+    const isObject2 = typeof inputDate === "object" ? inputDate : "";
+
+    createTaskObject(
+      textBoxValueName,
+      textBoxValueDiscription,
+      isObject,
+      isObject2
+    );
+  }, [textBoxValueName, textBoxValueDiscription, inputValueDate, inputDate]);
 
   return (
     <div className="container mt-5">
@@ -113,6 +130,7 @@ function App() {
         yesterday={yesterday}
         today={currentDate}
         tomorrow={tomorrow}
+        inputDate={inputDate}
       >
         <Deletebutton deleteTask={deleteTask} />
       </Tasklist>

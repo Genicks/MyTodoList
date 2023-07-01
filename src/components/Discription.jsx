@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const Discription = (props) => {
-  const { myTasks } = props;
+  const { myTasks, dynamicStyles } = props;
 
   const [display, setDisplay] = useState(``);
   const [borderTopStyle, setBorderTopStyle] = useState(``);
@@ -13,7 +13,7 @@ export const Discription = (props) => {
     setBorderTopStyle(
       myTasks.discription === ""
         ? "border-0 m-0 p-0"
-        : "col text-secondary mt-2 ps-4 pt-1 border-top border-secondary"
+        : `col text-secondary mt-2 ps-4 pt-1 border-top border-secondary ${dynamicStyles.TaskStyles.color}`
     );
   }, [myTasks]);
 
