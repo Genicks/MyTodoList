@@ -3,8 +3,8 @@
 - [ ] Fix css when adding suggestion values
 
 # Features to add
-- [ ] Add enter key event listener to add a task
 - [ ] local storage
+- [x] Add enter key event listener to add a task
 - [x] Wrap data input into a form
 - [x] Add current time to header
 - [x] Add time input and display
