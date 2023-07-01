@@ -13,10 +13,10 @@ function App() {
   const [textBoxValueDiscription, setTextBoxValueDiscription] = useState("");
   const [inputValueDate, setinputValueDate] = useState("");
   const [isBtnClicked, setBtnState] = useState(true);
-  const [dynamicStyles, setdynamicStyles] = useState({
+  const dynamicStyles = {
     ATBStyles: { padding: "py-0", border: "border-0" },
     TaskStyles: { color: "text-warning border-warning" },
-  });
+  };
 
   const [currentDate, setCurrentDate] = useState(new Date());
   const [yesterday, setYesterday] = useState(new Date());
@@ -37,13 +37,13 @@ function App() {
     const tempYesterday = new Date();
     tempYesterday.setDate(currentDate.getDate() - 1);
     setYesterday(tempYesterday);
-  }, []);
+  }, [currentDate]);
 
   useEffect(() => {
     const tempTomorrow = new Date();
     tempTomorrow.setDate(currentDate.getDate() + 1);
     setTomorrow(tempTomorrow);
-  }, []);
+  }, [currentDate]);
 
   const createTaskObject = (name, discription, date, inputDate) => {
     const task = {

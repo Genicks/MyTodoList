@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const Discription = (props) => {
-  const { myTasks, dynamicStyles } = props;
+  const { myTasks } = props;
 
   const [display, setDisplay] = useState(``);
   const [borderTopStyle, setBorderTopStyle] = useState(``);

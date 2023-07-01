@@ -1,8 +1,5 @@
 import React, { useEffect } from "react";
-import Taskname from "./Taskname";
-import { Discription } from "./Discription";
 import "./customClass.css";
-import { DueDate } from "./DueDate";
 import Task from "./Task";
 import Deletebutton from "./Deletebutton";
 
@@ -14,7 +11,7 @@ function Tasklist(Props) {
   useEffect(() => {
     const padding = myTasks.length === 0 ? "py-0" : "py-3";
     dynamicStyles.ATBStyles.padding = padding;
-  }, [myTasks]);
+  }, [myTasks, dynamicStyles.ATBStyles]);
 
   return (
     //! Dynamic styles padding

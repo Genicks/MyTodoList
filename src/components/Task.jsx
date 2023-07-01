@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Taskname from "./Taskname";
 import { Discription } from "./Discription";
 import { DueDate } from "./DueDate";

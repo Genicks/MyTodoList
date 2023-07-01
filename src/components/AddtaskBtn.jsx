@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Addtask from "./Addtask";
 
 export const AddtaskBtn = (props) => {
@@ -14,13 +14,14 @@ export const AddtaskBtn = (props) => {
     handleButtonClick,
     handleButtonClickCancel,
     dynamicStyles,
-    myTasks
+    myTasks,
   } = props;
 
   useEffect(() => {
-    const border = myTasks.length === 0 ? "border-0" : "border-top border-secondary";
+    const border =
+      myTasks.length === 0 ? "border-0" : "border-top border-secondary";
     dynamicStyles.ATBStyles.border = border;
-  }, [myTasks]);
+  }, [myTasks, dynamicStyles.ATBStyles]);
 
   return (
     <div>
