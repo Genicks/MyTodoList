@@ -13,26 +13,28 @@ const Task = (props) => {
     today,
     tomorrow,
     yesterday,
-    inputDate,
   } = props;
 
   const style = () => {
-    const isObject = typeof myTasksArray[index].inputDate === "object" ? true : false;
+    const isObject =
+      typeof myTasksArray[index].inputDate === "object" ? true : false;
     if (isObject) {
       if (
-        myTasksArray[index].inputDate.toLocaleDateString ===
-        today.toLocaleDateString &  myTasksArray[index].inputDate.toLocaleDateString ===
-        today.toLocaleDateString
+        myTasksArray[index].inputDate.toLocaleDateString() ===
+          today.toLocaleDateString() &&
+        myTasksArray[index].inputDate.getTime() >= today.getTime()
       ) {
         dynamicStyles.TaskStyles.color = "text-success border-success";
       } else if (
         myTasksArray[index].inputDate.toLocaleDateString() ===
-        tomorrow.toLocaleDateString()
+          tomorrow.toLocaleDateString() &&
+        myTasksArray[index].inputDate.getTime() > today.getTime()
       ) {
         dynamicStyles.TaskStyles.color = "text-warning border-warning";
       } else if (
         myTasksArray[index].inputDate.toLocaleDateString() <=
-        yesterday.toLocaleDateString()
+          yesterday.toLocaleDateString() ||
+        myTasksArray[index].inputDate.getTime() < today.getTime()
       ) {
         dynamicStyles.TaskStyles.color = "text-danger border-danger";
       } else {

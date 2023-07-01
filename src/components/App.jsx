@@ -130,7 +130,6 @@ function App() {
         yesterday={yesterday}
         today={currentDate}
         tomorrow={tomorrow}
-        inputDate={inputDate}
       >
         <Deletebutton deleteTask={deleteTask} />
       </Tasklist>
