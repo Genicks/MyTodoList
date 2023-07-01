@@ -1,37 +1,38 @@
-function Task(props) {
-  let { index, deleteTask, myTasks } = props;
+import React from "react";
+import Taskname from "./Taskname";
+import { Discription } from "./Discription";
+import { DueDate } from "./DueDate";
 
-  function handleCheckboxChange(event) {
-    const isChecked = event.target.checked;
-    const checkboxbelow = document.getElementById(`checkbox${index}`);
-
-    if (isChecked) {
-      deleteTask(index, 1000, event);
-      // console.log(myTasks)
-    }
-
-    setTimeout(() => {
-      checkboxbelow.checked = false;
-    }, 1000);
-  }
-
+const Task = (props) => {
+  const { index, deleteTask, myTasksArray, myTasks } = props;
   return (
-    <div className="col-auto">
-      <div className="row d-flex align-items-center">
+    <li
+      className="list-group-item container text-light my-1 bg-transparent border border-secondary rounded-3"
+    >
+      <div className="row justify-content-between d-flex align-items-center">
+        {/* This code renders the check box and label & time*/}
         <div className="col-auto">
-          <input
-            id={`checkbox${index}`}
-            type="checkbox"
-            onChange={handleCheckboxChange}
-            className="form-check-input fs-4 border-secondary col rounded-circle bg-transparent border-2"
-          />
+          <div className="row d-flex align-items-center ">
+            <Taskname
+              index={index}
+              deleteTask={deleteTask}
+              myTasks={myTasksArray}
+            />
+            <DueDate myTasks={myTasks} />
+          </div>
         </div>
-
-        <label htmlFor="task" className="px-0 fs-5 col-auto">
-          {myTasks[index].name}
-        </label>
+        {/* this code renders the delete button */}
+        <div className="col-auto">
+          {React.Children.map(props.children, (child) => {
+            return React.cloneElement(child, { index, ...child.Props });
+          })}
+        </div>
+        {/* this code renders the discription */}
       </div>
-    </div>
+      <div className="row d-flex align-items-center">
+        <Discription myTasks={myTasks} />
+      </div>
+    </li>
   );
-}
+};
 export default Task;
