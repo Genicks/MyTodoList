@@ -7,7 +7,8 @@ import Task from "./Task";
 import Deletebutton from "./Deletebutton";
 
 function Tasklist(Props) {
-  const { myTasks, deleteTask, dynamicStyles, today, tomorrow, yesterday, inputDate } = Props;
+  const { myTasks, deleteTask, dynamicStyles, today, tomorrow, yesterday } =
+    Props;
   const myTasksArray = myTasks;
 
   useEffect(() => {
@@ -30,9 +31,8 @@ function Tasklist(Props) {
             today={today}
             tomorrow={tomorrow}
             yesterday={yesterday}
-            inputDate={inputDate}
           >
-            <Deletebutton deleteTask={deleteTask} key={index}/>
+            <Deletebutton deleteTask={deleteTask} key={index} />
           </Task>
         ))}
       </ul>
