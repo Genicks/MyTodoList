@@ -4,6 +4,9 @@
 
 # Features to add
 - [ ] local storage
+- [ ] Notification
+- [ ] Sorting based on days using filter method
+- [ ] Subtasks
 - [x] Add enter key event listener to add a task
 - [x] Wrap data input into a form
 - [x] Add current time to header
