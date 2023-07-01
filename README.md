@@ -9,4 +9,5 @@
 - [x] Remove border top for the description in tasklist when description is empty
 - [x] Make task list dark theme and prettier
 - [ ] Add enter key event listener to add a task
-- [ ] Add color formating to task for tommorrow and yesterday
+- [x] Add color formating to task for tommorrow and yesterday
+- [ ] Add input time and enable comparisons to apply css
