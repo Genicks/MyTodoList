@@ -3,11 +3,12 @@
 - [ ] Fix css when adding suggestion values
 
 # Features to add
+- [ ] Add enter key event listener to add a task
+- [ ] local storage
+- [x] Wrap data input into a form
 - [x] Add current time to header
 - [x] Add time input and display
-- [ ] local storage
 - [x] Remove border top for the description in tasklist when description is empty
 - [x] Make task list dark theme and prettier
-- [ ] Add enter key event listener to add a task
 - [x] Add color formating to task for tommorrow and yesterday
-- [ ] Add input time and enable comparisons to apply css
+- [x] Add input time and enable comparisons to apply css

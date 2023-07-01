@@ -1,6 +1,5 @@
 export const DueDate = (Props) => {
   const { myTasks, dynamicStyles } = Props;
-  {console.log(myTasks)}
 
   return (
     <div className="col">

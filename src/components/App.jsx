@@ -73,16 +73,21 @@ function App() {
     setInputDate(inputDate);
   };
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (event) => {
+    event.preventDefault();
     setMyTask([...myTasks, taskObject]);
     setTextBoxValueName("");
     setTextBoxValueDiscription("");
+    setinputValueDate("")
     setTaskNum(taskNum + 1);
     setBtnState(true);
   };
 
   const handleButtonClickCancel = () => {
     setBtnState(true);
+    setTextBoxValueName("");
+    setTextBoxValueDiscription("");
+    setinputValueDate("")
   };
 
   const deleteTask = (index, timeout, event) => {

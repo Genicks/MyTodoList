@@ -7,7 +7,6 @@ function Taskname(props) {
 
     if (isChecked) {
       deleteTask(index, 1000, event);
-      // console.log(myTasks)
     }
 
     setTimeout(() => {
