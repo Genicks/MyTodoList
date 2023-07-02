@@ -2,6 +2,8 @@ import React from "react";
 import Taskname from "./Taskname";
 import { Discription } from "./Discription";
 import { DueDate } from "./DueDate";
+import Checkbox from "./Checkbox";
+import Deletebutton from "./Deletebutton";
 
 const Task = (props) => {
   const {
@@ -45,33 +47,31 @@ const Task = (props) => {
     }
   };
 
-
   return (
-    <li className="list-group-item container text-light my-1 bg-transparent border border-secondary rounded-3">
+    <li className=" container list-group-item my-1 px-0 bg-transparent border border-secondary rounded-3">
       {style()}
-      <div className="row justify-content-between d-flex align-items-center">
-        {/* This code renders the check box and label & time*/}
-        <div className="col-auto">
-          <div className="row d-flex align-items-center ">
+      <div className="row m-0 p-0 justify-content-between d-flex align-items-center">
+        <div className="row m-0 p-0 d-flex align-items-center ">
+          <Checkbox
+            index={index}
+            dynamicStyles={dynamicStyles}
+            deleteTask={deleteTask}
+          />
+
+          <div className="col-10 p-0">
             <Taskname
               index={index}
-              deleteTask={deleteTask}
               myTasks={myTasksArray}
               dynamicStyles={dynamicStyles}
             />
             <DueDate myTasks={myTasks} dynamicStyles={dynamicStyles} />
           </div>
+
+          <Deletebutton deleteTask={deleteTask} index={index} />
         </div>
-        {/* this code renders the delete button */}
-        <div className="col-auto">
-          {React.Children.map(props.children, (child) => {
-            return React.cloneElement(child, { index, ...child.Props });
-          })}
+        <div className="row-auto p-0 d-flex align-items-center">
+          <Discription myTasks={myTasks} dynamicStyles={dynamicStyles} />
         </div>
-        {/* this code renders the discription */}
-      </div>
-      <div className="row d-flex align-items-center">
-        <Discription myTasks={myTasks} dynamicStyles={dynamicStyles} />
       </div>
     </li>
   );

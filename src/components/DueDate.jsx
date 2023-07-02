@@ -2,7 +2,7 @@ export const DueDate = (Props) => {
   const { myTasks, dynamicStyles } = Props;
 
   return (
-    <div className="col">
+    <div className="row">
       {myTasks.date === "" || myTasks.date === "Invalid Date" ? (
         <div></div>
       ) : (

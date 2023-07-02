@@ -1,7 +1,6 @@
 import Header from "./Header";
 import Tasklist from "./Tasklist";
 import { useEffect, useState } from "react";
-import Deletebutton from "./Deletebutton";
 import { AddtaskBtn } from "./AddtaskBtn";
 
 function App() {
@@ -13,10 +12,17 @@ function App() {
   const [textBoxValueDiscription, setTextBoxValueDiscription] = useState("");
   const [inputValueDate, setinputValueDate] = useState("");
   const [isBtnClicked, setBtnState] = useState(true);
-  const dynamicStyles = {
+  const [dynamicStyles, setDynamicStyles] = useState({
     ATBStyles: { padding: "py-0", border: "border-0" },
-    TaskStyles: { color: "text-warning border-warning" },
-  };
+    TaskStyles: { color: "text-warning border-warning" }
+  })
+
+useEffect(()=>{
+  setDynamicStyles({
+    ATBStyles: { padding: "py-0", border: "border-0" },
+    TaskStyles: { color: "text-warning border-warning" }
+  })
+},[])
 
   const [currentDate, setCurrentDate] = useState(new Date());
   const [yesterday, setYesterday] = useState(new Date());
@@ -135,9 +141,7 @@ function App() {
         yesterday={yesterday}
         today={currentDate}
         tomorrow={tomorrow}
-      >
-        <Deletebutton deleteTask={deleteTask} />
-      </Tasklist>
+      />
       <AddtaskBtn
         textBoxValueName={textBoxValueName}
         handleChangeName={handleChangeName}

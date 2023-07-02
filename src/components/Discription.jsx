@@ -13,7 +13,7 @@ export const Discription = (props) => {
     setBorderTopStyle(
       myTasks.discription === ""
         ? "border-0 m-0 p-0"
-        : `col text-secondary mt-2 ps-4 pt-1 border-top border-secondary`
+        : `col-12 text-secondary mt-2 p-3 pb-2 border-top border-secondary`
     );
   }, [myTasks]);
 
