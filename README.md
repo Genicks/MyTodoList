@@ -7,6 +7,7 @@
 - [ ] Notification
 - [ ] Sorting based on days using filter method
 - [ ] Subtasks
+- [ ] Add a short cut to add task "CTRL + N" use event listener on App.jsx
 - [x] Add enter key event listener to add a task
 - [x] Wrap data input into a form
 - [x] Add current time to header
