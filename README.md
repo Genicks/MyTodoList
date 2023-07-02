@@ -7,7 +7,10 @@
 - [ ] Notification
 - [ ] Sorting based on days using filter method
 - [ ] Subtasks
+- [ ] Make add task menu sticky to the bottom and 100% vh
+- [ ] Change date time format in header to a longer one
 - [ ] Add a short cut to add task "CTRL + N" use event listener on App.jsx
+- [ ] Add edit button 
 - [x] Add enter key event listener to add a task
 - [x] Wrap data input into a form
 - [x] Add current time to header
